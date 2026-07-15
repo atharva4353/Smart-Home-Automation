@@ -1,604 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<title>SimuSoft AI Projects</title>
 
-  <meta
-    name="description"
-    content="Smart Home Automation using Raspberry Pi, USB camera, relay module and hand gesture control."
-  >
+<link rel="stylesheet" href="style.css">
 
-  <title>Smart Home Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Project Header -->
-  <header class="hero">
+<div class="container">
 
-    <div class="logo-box">
-      <span class="logo-fallback">SimuSoft</span>
-    </div>
+    <img src="logo.png" class="logo" alt="SimuSoft Logo">
 
-    <h1>🏠 Smart Home Automation</h1>
+    <h1>SimuSoft AI Projects</h1>
 
-    <p>
-      Raspberry Pi + Camera + Relay + Hand Gesture Control
+    <h3>Smart Learning with Raspberry Pi</h3>
+
+    <p class="subtitle">
+        Explore Artificial Intelligence, Computer Vision,
+        IoT and Automation Projects.
     </p>
 
-  </header>
+    <div class="project-card">
 
-
-  <!-- Navigation and Download Buttons -->
-  <nav class="action-bar" aria-label="Project downloads">
-
-    <a
-      class="action-btn"
-      href="Home_Automation"
-      download
-    >
-      📥 Download Python Code
-    </a>
-
-    <a
-      class="action-btn"
-      href="requirements.txt"
-      download
-    >
-      📦 Requirements
-    </a>
-
-    <a
-      class="action-btn"
-      href="#libraries"
-    >
-      📚 Libraries
-    </a>
-
-    <a
-      class="action-btn"
-      href="../"
-    >
-      🏠 Home
-    </a>
-
-  </nav>
-
-
-  <main class="container">
-
-    <!-- Objective -->
-    <section class="card">
-
-      <h2>🎯 Objective</h2>
-
-      <p>
-        This project demonstrates how a Raspberry Pi can control
-        household appliances using hand gestures detected through a
-        USB camera.
-      </p>
-
-      <p>
-        A 4-channel relay module is used to control an LED, fan,
-        buzzer and water pump.
-      </p>
-
-    </section>
-
-
-    <!-- Required Components -->
-    <section class="card">
-
-      <h2>🛠 Required Components</h2>
-
-      <ul class="component-list">
-
-        <li>🍓 Raspberry Pi</li>
-
-        <li>📷 USB Camera</li>
-
-        <li>🔌 4-Channel Relay Module</li>
-
-        <li>〰️ Jumper Wires</li>
-
-        <li>🔋 Power Supply for Raspberry Pi</li>
-
-        <li>⚡ External Power Supply for Appliances</li>
-
-        <li>💡 LED</li>
-
-        <li>🌀 Fan</li>
-
-        <li>🔊 Buzzer</li>
-
-        <li>💧 Water Pump</li>
-
-      </ul>
-
-    </section>
-
-
-    <!-- GPIO Connections -->
-    <section class="card">
-
-      <h2>🔌 Connections</h2>
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-              <th>Component</th>
-              <th>Pin</th>
-              <th>Connection</th>
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            <tr>
-              <td>Relay Channel 1</td>
-              <td>IN1</td>
-              <td>GPIO 17</td>
-            </tr>
-
-            <tr>
-              <td>Relay Channel 2</td>
-              <td>IN2</td>
-              <td>GPIO 27</td>
-            </tr>
-
-            <tr>
-              <td>Relay Channel 3</td>
-              <td>IN3</td>
-              <td>GPIO 22</td>
-            </tr>
-
-            <tr>
-              <td>Relay Channel 4</td>
-              <td>IN4</td>
-              <td>GPIO 23</td>
-            </tr>
-
-            <tr>
-              <td>Relay Module</td>
-              <td>VCC</td>
-              <td>5V</td>
-            </tr>
-
-            <tr>
-              <td>Relay Module</td>
-              <td>GND</td>
-              <td>GND</td>
-            </tr>
-
-            <tr>
-              <td>USB Camera</td>
-              <td>USB</td>
-              <td>Raspberry Pi USB Port</td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-
-
-    <!-- Finger Mapping -->
-    <section class="card">
-
-      <h2>🖐 Finger Mapping</h2>
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-              <th>Finger</th>
-              <th>GPIO Pin</th>
-              <th>Appliance</th>
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            <tr>
-              <td>☝️ Index</td>
-              <td>GPIO 17</td>
-              <td>LED</td>
-            </tr>
-
-            <tr>
-              <td>Middle</td>
-              <td>GPIO 27</td>
-              <td>Fan</td>
-            </tr>
-
-            <tr>
-              <td>💍 Ring</td>
-              <td>GPIO 22</td>
-              <td>Buzzer</td>
-            </tr>
-
-            <tr>
-              <td>🤙 Pinky</td>
-              <td>GPIO 23</td>
-              <td>Water Pump</td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-
-
-    <!-- Procedure -->
-    <section class="card">
-
-      <h2>📋 Procedure</h2>
-
-      <ol class="procedure">
-
-        <li>
-          Download the project files from this webpage.
-        </li>
-
-        <li>
-          Open the Terminal on the Raspberry Pi.
-        </li>
-
-        <li>
-          Create a Python virtual environment.
-        </li>
-
-        <li>
-          Activate the virtual environment.
-        </li>
-
-        <li>
-          Install all required Python libraries.
-        </li>
-
-        <li>
-          Connect the USB camera to the Raspberry Pi.
-        </li>
-
-        <li>
-          Connect the 4-channel relay module according to the
-          connection table.
-        </li>
-
-        <li>
-          Create or download the Python file named
-          <strong>Home_Automation.py</strong>.
-        </li>
-
-        <li>
-          Run the Python program.
-        </li>
-
-        <li>
-          The camera starts and detects the user's hand.
-        </li>
-
-        <li>
-          Show the mapped finger to control the corresponding
-          appliance.
-        </li>
-
-        <li>
-          The selected appliance switches ON or OFF through its
-          relay channel.
-        </li>
-
-      </ol>
-
-    </section>
-
-
-    <!-- Terminal Commands -->
-    <section class="card" id="libraries">
-
-      <h2>💻 Terminal Commands</h2>
-
-      <pre><code>python3 -m venv mp-env
-
-source mp-env/bin/activate
-
-pip install -r requirements.txt
-
-python3 Home_Automation.py</code></pre>
-
-    </section>
-
-
-    <!-- Libraries -->
-    <section class="card">
-
-      <h2>📚 Required Libraries</h2>
-
-      <pre><code>opencv-python
-mediapipe
-RPi.GPIO
-numpy</code></pre>
-
-      <p class="note">
-        The library list should match the imports used in your
-        Home_Automation.py program.
-      </p>
-
-    </section>
-
-
-    <!-- Working Flow -->
-    <section class="card">
-
-      <h2>⚙️ How the System Works</h2>
-
-      <div class="flow">
-
-        <div>
-          📷 <strong>USB Camera</strong>
+        <div class="icon">
+            🏠
         </div>
 
-        <span>↓</span>
-
-        <div>
-          🖐 <strong>Hand Gesture Detection</strong>
-        </div>
-
-        <span>↓</span>
-
-        <div>
-          🧠 <strong>Finger Recognition</strong>
-        </div>
-
-        <span>↓</span>
-
-        <div>
-          🍓 <strong>Raspberry Pi GPIO</strong>
-        </div>
-
-        <span>↓</span>
-
-        <div>
-          🔌 <strong>4-Channel Relay Module</strong>
-        </div>
-
-        <span>↓</span>
-
-        <div>
-          💡 <strong>Appliance Controlled</strong>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- Circuit Diagram -->
-    <section class="card">
-
-      <h2>🖼 Circuit Diagram</h2>
-
-      <div class="diagram-box">
-
-        <img
-          src="circuit-diagram.png"
-          alt="Smart Home Automation circuit diagram"
-        >
+        <h2>Smart Home Automation</h2>
 
         <p>
-          Save your circuit diagram in the Smart-Home folder and
-          name it
-          <strong>circuit-diagram.png</strong>.
+            Control household appliances using
+            Hand Gesture Recognition,
+            Raspberry Pi and AI.
         </p>
 
-      </div>
+        <a href="Smart Home Automation" class="btn">
+            🚀 Open Project
+        </a>
 
-    </section>
+    </div>
 
+    <div class="features">
 
-    <!-- Expected Output -->
-    <section class="card">
+        <div class="feature">
+            🤖
+            <span>Artificial Intelligence</span>
+        </div>
 
-      <h2>📘 Expected Output</h2>
+        <div class="feature">
+            🍓
+            <span>Raspberry Pi</span>
+        </div>
 
-      <ul>
+        <div class="feature">
+            📷
+            <span>Computer Vision</span>
+        </div>
 
-        <li>
-          The USB camera preview starts.
-        </li>
+        <div class="feature">
+            💡
+            <span>Home Automation</span>
+        </div>
 
-        <li>
-          The system detects the user's hand in real time.
-        </li>
+    </div>
 
-        <li>
-          The detected finger is displayed on the camera window.
-        </li>
-
-        <li>
-          The corresponding GPIO pin activates its relay channel.
-        </li>
-
-        <li>
-          The LED, fan, buzzer or water pump turns ON or OFF.
-        </li>
-
-      </ul>
-
-    </section>
-
-
-    <!-- Applications -->
-    <section class="card">
-
-      <h2>🌍 Applications</h2>
-
-      <ul>
-
-        <li>
-          🏡 Contactless home appliance control
-        </li>
-
-        <li>
-          ♿ Assistive technology for people with limited mobility
-        </li>
-
-        <li>
-          🏫 AI and IoT learning projects
-        </li>
-
-        <li>
-          🏭 Touch-free industrial control systems
-        </li>
-
-        <li>
-          ⚡ Energy-saving automation systems
-        </li>
-
-      </ul>
-
-    </section>
-
-
-    <!-- Troubleshooting -->
-    <section class="card">
-
-      <h2>⚠ Troubleshooting</h2>
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-              <th>Problem</th>
-              <th>Solution</th>
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            <tr>
-
-              <td>
-                Camera not detected
-              </td>
-
-              <td>
-                Reconnect the USB camera and restart the
-                Raspberry Pi.
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td>
-                Relay not switching
-              </td>
-
-              <td>
-                Check VCC, GND, GPIO wiring and relay active-LOW
-                logic.
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td>
-                Module not found
-              </td>
-
-              <td>
-                Activate the virtual environment and install the
-                required libraries.
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td>
-                Permission denied
-              </td>
-
-              <td>
-                Run the program with the correct permissions and
-                verify GPIO access.
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td>
-                Wrong appliance activates
-              </td>
-
-              <td>
-                Verify the GPIO numbers and finger mapping table.
-              </td>
-
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-
-
-    <!-- Information -->
-    <section class="card fact-card">
-
-      <h2>💡 Did You Know?</h2>
-
-      <p>
-        Gesture-based automation allows users to operate appliances
-        without touching physical switches. This makes the system
-        useful for accessibility, hygiene and smart learning
-        applications.
-      </p>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-
-    <p>
-      Smart Home Automation | Raspberry Pi Project
-    </p>
-
-  </footer>
+</div>
 
 </body>
 </html>
