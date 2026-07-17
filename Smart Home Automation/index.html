@@ -908,48 +908,441 @@
 
         <section class="section" id="installation">
 
-            <h2>Software Installation</h2>
+            <!-- Required Libraries -->
 
-            <h3>Step 1: Update Raspberry Pi</h3>
+<section class="section" id="installation">
 
-            <div class="code-header">
-                <span>Terminal command</span>
+    <h2>Required Libraries</h2>
 
-                <button
-                    type="button"
-                    class="copy-button"
-                    onclick="copyCode('updateCommand', this)"
-                >
-                    Copy
-                </button>
-            </div>
+    <div class="note">
+        <strong>Important:</strong>
+        Install all the libraries in the given sequence and install
+        them one at a time.
+    </div>
 
-            <pre><code id="updateCommand">sudo apt update
-sudo apt upgrade -y</code></pre>
+    <!-- Step 1 -->
 
-            <h3>Step 2: Install Required Packages</h3>
+    <h3>Step 1: Update Raspberry Pi and Install Build Packages</h3>
 
-            <div class="code-header">
-                <span>Terminal command</span>
+    <div class="code-header">
+        <span>Terminal Command 01</span>
 
-                <button
-                    type="button"
-                    class="copy-button"
-                    onclick="copyCode('installCommand', this)"
-                >
-                    Copy
-                </button>
-            </div>
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep1', this)"
+        >
+            Copy
+        </button>
+    </div>
 
-            <pre><code id="installCommand">sudo apt install python3-opencv python3-pip -y
-pip3 install mediapipe
-pip3 install cvzone
-pip3 install gpiozero</code></pre>
+    <pre><code id="libraryStep1">sudo apt update
 
-            <div class="note">
-                On newer Raspberry Pi OS versions, create a Python virtual
-                environment if pip blocks system-wide installation.
-            </div>
+sudo apt install -y build-essential libssl-dev zlib1g-dev \
+libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev \
+libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev tk-dev \
+libffi-dev uuid-dev wget</code></pre>
+
+    <!-- Step 2 -->
+
+    <h3>Step 2: Download Python 3.10.13</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 02</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep2', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep2">cd /usr/src
+
+sudo wget https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz
+
+sudo tar -xf Python-3.10.13.tgz
+
+cd Python-3.10.13</code></pre>
+
+    <!-- Step 3 -->
+
+    <h3>Step 3: Configure and Compile Python</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 03</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep3', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep3">sudo ./configure --enable-optimizations
+
+sudo make -j4</code></pre>
+
+    <!-- Step 4 -->
+
+    <h3>Step 4: Install Python 3.10</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 04</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep4', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep4">sudo make altinstall</code></pre>
+
+    <!-- Step 5 -->
+
+    <h3>Step 5: Check Python Version</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 05</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep5', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep5">python3.10 --version</code></pre>
+
+    <!-- Step 6 -->
+
+    <h3>Step 6: Return to Home Directory</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 06</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep6', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep6">cd</code></pre>
+
+    <!-- Step 7 -->
+
+    <h3>Step 7: Create Python Virtual Environment</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 07</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep7', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep7">python3.10 -m venv mp-env</code></pre>
+
+    <!-- Step 8 -->
+
+    <h3>Step 8: Activate Virtual Environment</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 08</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep8', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep8">source mp-env/bin/activate</code></pre>
+
+    <!-- Step 9 -->
+
+    <h3>Step 9: Install MediaPipe</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 09</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep9', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep9">pip install mediapipe</code></pre>
+
+    <!-- Step 10 -->
+
+    <h3>Step 10: Install OpenCV</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 10</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep10', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep10">pip install opencv-python==4.7.0.72</code></pre>
+
+    <!-- Step 11 -->
+
+    <h3>Step 11: Install TensorFlow Lite Runtime</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 11</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep11', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep11">pip install tflite-runtime</code></pre>
+
+    <!-- Step 12 -->
+
+    <h3>Step 12: Activate Virtual Environment Again</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 12</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep12', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep12">source mp-env/bin/activate</code></pre>
+
+    <!-- Step 13 -->
+
+    <h3>Step 13: Install GPIO Zero</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 13</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep13', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep13">pip install gpiozero</code></pre>
+
+    <!-- Step 14 -->
+
+    <h3>Step 14: Install RPi.GPIO</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 14</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep14', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep14">pip install RPi.GPIO</code></pre>
+
+    <!-- Step 15 -->
+
+    <h3>Step 15: Install Python PyAudio</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 15</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep15', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep15">sudo apt install python3-pyaudio</code></pre>
+
+    <!-- Step 16 -->
+
+    <h3>Step 16: Install Speech Recognition</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 16</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep16', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep16">pip3 install SpeechRecognition</code></pre>
+
+    <!-- Step 17 -->
+
+    <h3>Step 17: Install PortAudio and PyAudio Packages</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 17</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep17', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep17">sudo apt install portaudio19-dev python3-pyaudio -y</code></pre>
+
+    <!-- Step 18 -->
+
+    <h3>Step 18: Install SpeechRecognition and PyAudio</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 18</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep18', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep18">pip3 install SpeechRecognition pyaudio</code></pre>
+
+    <!-- Step 19 -->
+
+    <h3>Step 19: Install FLAC</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 19</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep19', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep19">sudo apt install flac -y</code></pre>
+
+    <!-- Step 20 -->
+
+    <h3>Step 20: Configure the Audio Card</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 20</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep20', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep20">sudo nano ~/.asoundrc</code></pre>
+
+    <p>
+        Paste the following two lines inside the file:
+    </p>
+
+    <div class="code-header">
+        <span>Audio Configuration</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('audioConfiguration', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="audioConfiguration">defaults.pcm.card 1
+defaults.ctl.card 1</code></pre>
+
+    <div class="note">
+        After pasting the two lines, press
+        <strong>Ctrl + O</strong>, press <strong>Enter</strong>,
+        and then press <strong>Ctrl + X</strong>.
+    </div>
+
+    <!-- Step 21 -->
+
+    <h3>Step 21: Reboot Raspberry Pi</h3>
+
+    <div class="code-header">
+        <span>Terminal Command 21</span>
+
+        <button
+            type="button"
+            class="copy-button"
+            onclick="copyCode('libraryStep21', this)"
+        >
+            Copy
+        </button>
+    </div>
+
+    <pre><code id="libraryStep21">reboot</code></pre>
+
+    <div class="success-note">
+        After rebooting, activate the virtual environment using
+        <strong>source mp-env/bin/activate</strong> before running the
+        Smart Home Automation Python program.
+    </div>
+
+</section>
 
         </section>
 
